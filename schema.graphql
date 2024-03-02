@@ -33,6 +33,8 @@ input EmployeeCreateInput {
 type Mutation {
   createCompany(data: CompanyCreateInput!): Company!
   createEmployee(data: EmployeeCreateInput!): Employee!
+  deleteCompany(id: Int!): Company!
+  deleteEmployee(id: Int!): Employee!
 }
 
 type Query {

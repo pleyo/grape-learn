@@ -43,6 +43,18 @@ builder.mutationFields((t) => ({
       })
     },
   }),
+  deleteEmployee: t.prismaField({
+    type: 'Employee',
+    args: {
+      id: t.arg.int({ required: true }),
+    },
+    resolve: (query, parent, args) => {
+      return prisma.employee.delete({
+        ...query,
+        where: { id: args.id },
+      })
+    },
+  }),
 }))
 
 builder.queryFields((t) => ({
