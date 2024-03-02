@@ -4,7 +4,13 @@
   "description": "This project is aim to fill some gap that I have regarding some tech that grape is using.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server",
+    "start": "node dist/server",
+    "clean": "rm -rf dist",
+    "build": "npm -s run clean && npm -s run generate && tsc && npm run build:schema",
+    "build:schema": "ts-node src/schema/index.ts",
+    "generate": "npm -s run generate:prisma",
+    "generate:prisma": "prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +22,12 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@prisma/client": "^5.10.2"
+    "@pothos/core": "^3.41.0",
+    "@pothos/plugin-prisma": "^3.64.0",
+    "@prisma/client": "^5.10.2",
+    "graphql": "^16.8.1",
+    "graphql-scalars": "^1.22.5",
+    "graphql-yoga": "^5.1.1",
+    "ts-node-dev": "^2.0.0"
   }
 }
