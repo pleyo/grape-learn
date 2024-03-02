@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Define the Company entity
+model Company {
+  id        Int      @id @default(autoincrement())
+  name      String
+  address   String
+  // Add other relevant company details
+  employees Employee[]
+  policies  Policy[]
+}
+
+// Define the Employee entity
+model Employee {
+  id         Int      @id @default(autoincrement())
+  firstName  String
+  lastName   String
+  email      String
+  // Add other relevant employee details
+  companyId  Int
+  company    Company @relation(fields: [companyId], references: [id])
+  policies   Policy[]
+}
+
+// Define the Policy entity
+model Policy {
+  id             Int      @id @default(autoincrement())
+  number         String   @unique
+  startDate      DateTime
+  endDate        DateTime
+  premium        Float
+  // Add other relevant policy details
+  companyId      Int
+  employeeId     Int
+  company        Company @relation(fields: [companyId], references: [id])
+  employee       Employee @relation(fields: [employeeId], references: [id])
+  coverages      Coverage[]
+}
+
+// Define Coverage entity
+model Coverage {
+  id            Int      @id @default(autoincrement())
+  type          String
+  description   String
+  amount        Float    // Amount covered by the policy for this specific coverage
+  terms         String?  // Any specific terms or conditions related to the coverage
+  // Add other relevant coverage details
+  policyId      Int
+  policy        Policy   @relation(fields: [policyId], references: [id])
+}
