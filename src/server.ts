@@ -13,6 +13,7 @@ const yoga = createYoga({
 })
 
 const server = createServer(yoga)
+export { server }; // Export the 'server' variable
 
 server.listen(4000, () => {
   console.log(`\
