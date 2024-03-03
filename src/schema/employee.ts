@@ -7,7 +7,8 @@ builder.prismaObject('Employee', {
     firstname: t.exposeString('firstName'),
     lastname: t.exposeString('lastName'),
     email: t.exposeString('email'),
-    company: t.relation('company')
+    company: t.relation('company'),
+    policies: t.relation('policies'),
   }),
 })
 
