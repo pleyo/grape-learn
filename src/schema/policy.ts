@@ -1,19 +1,3 @@
-// model
-// Define the Policy entity
-// model Policy {
-//     id             Int      @id @default(autoincrement())
-//     number         String   @unique
-//     startDate      DateTime
-//     endDate        DateTime
-//     premium        Float
-//     // Add other relevant policy details
-//     companyId      Int
-//     employeeId     Int
-//     company        Company @relation(fields: [companyId], references: [id])
-//     employee       Employee @relation(fields: [employeeId], references: [id])
-//     coverages      Coverage[]
-//   } 
-
 import { builder } from '../builder'
 import { prisma } from '../db'
 
