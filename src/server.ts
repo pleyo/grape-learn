@@ -15,9 +15,11 @@ const yoga = createYoga({
 const server = createServer(yoga)
 export { server }; // Export the 'server' variable
 
-server.listen(4000, () => {
+const port = process.env.NODE_ENV === 'production' ? 80 : 3000;
+
+server.listen(port, () => {
   console.log(`\
-🚀 Server ready at: http://127.0.0.1:4000
+🚀 Server ready at: http://127.0.0.1:${port}
 ⭐️ See sample queries: http://pris.ly/e/ts/graphql#using-the-graphql-api
   `)
 })

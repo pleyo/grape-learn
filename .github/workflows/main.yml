@@ -45,6 +45,8 @@ jobs:
           heroku_email: "yohann.pollonghini@gmail.com"
           usedocker: true
           docker_build_args: |
+            NODE_ENV
             SECRET_KEY
         env:
+          NODE_ENV: production
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
