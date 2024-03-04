@@ -15,7 +15,7 @@ const yoga = createYoga({
 const server = createServer(yoga)
 export { server }; // Export the 'server' variable
 
-const port = process.env.NODE_ENV === 'production' ? 80 : 3000;
+const port = process.env.NODE_ENV === 'production' ? process.env.PORT : 4000;
 
 server.listen(port, () => {
   console.log(`\
