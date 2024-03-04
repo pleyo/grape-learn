@@ -9,11 +9,30 @@ builder.prismaObject('Policy', {
         startDate: t.expose('startDate', { type: 'DateTime' }),
         endDate: t.expose('endDate', { type: 'DateTime' }),
         premium: t.exposeFloat('premium'),
-        company: t.relation('company'),
         employee: t.relation('employee'),
-        coverages: t.relation('coverages'),
+        coverage: t.relation('coverage'),
     }),
 })
+
+builder.queryFields((t) => ({  
+    byCompany: t.prismaField({
+        type: ['Policy'],
+        args: {
+            companyId: t.arg.int({ required: true }),
+        },
+        resolve: (query, parent, args) => {
+            return prisma.policy.findMany({
+                ...query,
+                where: {
+                    employee: {
+                        companyId: args.companyId,
+                    },
+                },
+            })
+        },
+    }),
+}))
+
 
 // Define the mutation resolvers for the Policy type
 builder.mutationFields((t) => ({
@@ -36,7 +55,7 @@ builder.mutationFields((t) => ({
                 startDate: true,
                 endDate: true,
                 premium: true,
-                companyId: true,
+                coverageId: true,
                 employeeId: true,
             },
         });

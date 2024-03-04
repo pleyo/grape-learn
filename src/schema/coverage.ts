@@ -8,6 +8,5 @@ builder.prismaObject('Coverage', {
         description: t.exposeString('description'),
         amount: t.exposeFloat('amount'),
         terms: t.exposeString('terms', {nullable: true }), // Add an empty object as the second argument
-        policy: t.relation('policy'),
     }),
 })

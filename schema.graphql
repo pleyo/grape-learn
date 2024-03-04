@@ -14,7 +14,6 @@ type Coverage {
   amount: Float!
   description: String!
   id: Int!
-  policy: Policy!
   terms: String
   type: String!
 }
@@ -49,8 +48,7 @@ type Mutation {
 }
 
 type Policy {
-  company: Company!
-  coverages: [Coverage!]!
+  coverage: Coverage!
   employee: Employee!
   endDate: DateTime!
   id: Int!
@@ -62,4 +60,5 @@ type Policy {
 type Query {
   allCompany: [Company!]!
   allEmployee: [Employee!]!
+  byCompany(companyId: Int!): [Policy!]!
 }
