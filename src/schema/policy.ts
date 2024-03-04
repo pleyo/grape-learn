@@ -1,6 +1,7 @@
 import { builder } from '../builder'
 import { prisma } from '../db'
 
+// Define the Policy type
 builder.prismaObject('Policy', {
     fields: (t) => ({
         id: t.exposeInt('id'),
@@ -14,6 +15,7 @@ builder.prismaObject('Policy', {
     }),
 })
 
+// Define the mutation resolvers for the Policy type
 builder.mutationFields((t) => ({
     extendPolicy: t.prismaField({
     type: 'Policy',

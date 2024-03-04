@@ -1,6 +1,7 @@
 import { builder } from '../builder'
 import { prisma } from '../db'
 
+// Define the Employee type
 builder.prismaObject('Employee', {
   fields: (t) => ({
     id: t.exposeInt('id'),
@@ -12,6 +13,7 @@ builder.prismaObject('Employee', {
   }),
 })
 
+// Define the EmployeeCreateInput type
 const EmployeeCreateInput = builder.inputType('EmployeeCreateInput', {
     fields: (t) => ({
     firstname: t.string({ required: true }),
@@ -21,6 +23,7 @@ const EmployeeCreateInput = builder.inputType('EmployeeCreateInput', {
     }),
   })
 
+// Define mutation resolvers for the Employee type
 builder.mutationFields((t) => ({
     createEmployee: t.prismaField({
     type: 'Employee',
@@ -58,6 +61,7 @@ builder.mutationFields((t) => ({
   }),
 }))
 
+// Define query resolvers for the Employee type
 builder.queryFields((t) => ({
     allEmployee: t.prismaField({
       type: ['Employee'],

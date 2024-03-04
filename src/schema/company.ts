@@ -1,6 +1,7 @@
 import { builder } from '../builder'
 import { prisma } from '../db'
 
+// Define the Company type
 builder.prismaObject('Company', {
   fields: (t) => ({
     id: t.exposeInt('id'),
@@ -10,6 +11,7 @@ builder.prismaObject('Company', {
   }),
 })
 
+// Define the CompanyCreateInput type
 const CompanyCreateInput = builder.inputType('CompanyCreateInput', {
   fields: (t) => ({
     name: t.string({ required: true }),
@@ -17,6 +19,7 @@ const CompanyCreateInput = builder.inputType('CompanyCreateInput', {
   }),
 })
 
+// Define query resolvers for the Company type
 builder.queryFields((t) => ({
   allCompany: t.prismaField({
     type: ['Company'],
@@ -24,6 +27,7 @@ builder.queryFields((t) => ({
   }),
 }))
 
+// Define mutation resolvers for the Company type
 builder.mutationFields((t) => ({
   createCompany: t.prismaField({
     type: 'Company',

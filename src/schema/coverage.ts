@@ -1,5 +1,6 @@
 import { builder } from '../builder'
 
+// Define the Coverage type
 builder.prismaObject('Coverage', {
     fields: (t) => ({
         id: t.exposeInt('id'),
