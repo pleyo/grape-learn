@@ -67,4 +67,17 @@ builder.queryFields((t) => ({
       type: ['Employee'],
       resolve: (query) => prisma.employee.findMany({ ...query }),
     }),
+    employeeById: t.prismaField({
+      type: 'Employee',
+      args: {
+        id: t.arg.int({ required: true }),
+      },
+      resolve: async (query, parent, args) => {
+        const result = await prisma.employee.findUnique({
+          ...query,
+          where: { id: args.id },
+        });
+        return result || { id: 0, firstName: '', lastName: '', email: '', companyId: 0 }; // Return an empty object if result is null
+      },
+    }),
   }))

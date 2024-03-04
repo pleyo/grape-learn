@@ -15,7 +15,7 @@ builder.prismaObject('Policy', {
 })
 
 builder.queryFields((t) => ({  
-    byCompany: t.prismaField({
+    policyByCompany: t.prismaField({
         type: ['Policy'],
         args: {
             companyId: t.arg.int({ required: true }),

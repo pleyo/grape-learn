@@ -60,5 +60,6 @@ type Policy {
 type Query {
   allCompany: [Company!]!
   allEmployee: [Employee!]!
-  byCompany(companyId: Int!): [Policy!]!
+  employeeById(id: Int!): Employee!
+  policyByCompany(companyId: Int!): [Policy!]!
 }
