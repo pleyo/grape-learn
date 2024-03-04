@@ -1,8 +1,6 @@
 # Use an official Node.js runtime as a parent image
 FROM node:18-alpine
 
-ENV NODE_ENV=production
-
 # Set the working directory in the container
 WORKDIR /usr/src/app
 
@@ -18,8 +16,12 @@ COPY src ./src
 COPY tsconfig.json ./
 COPY tests ./tests
 
+# Set the environment variable
+ENV NODE_ENV=production
+
 # Build TypeScript files
 RUN npm run build
+
 
 # Expose the port that your app will run on
 EXPOSE 80
