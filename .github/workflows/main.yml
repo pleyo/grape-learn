@@ -46,7 +46,7 @@ jobs:
           usedocker: true
           docker_build_args: |
             NODE_ENV
-            SECRET_KEY
+            DATABASE_URL
         env:
           NODE_ENV: production
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
