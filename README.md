@@ -18,3 +18,9 @@ postgresql
 ### Installing
 
 follow these steps to install prisma [prisma](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgresql)
+
+### Simple Schema 
+
+This is the simple schema that I have created for this project. It is just to showcase the use of prisma and graphql.
+
+![](doc/db_schema.png)
