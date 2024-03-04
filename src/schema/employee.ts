@@ -80,4 +80,18 @@ builder.queryFields((t) => ({
         return result || { id: 0, firstName: '', lastName: '', email: '', companyId: 0 }; // Return an empty object if result is null
       },
     }),
+    employeeByCompany: t.prismaField({
+      type: ['Employee'],
+      args: {
+        companyId: t.arg.int({ required: true }),
+      },
+      resolve: (query, parent, args) => {
+        return prisma.employee.findMany({
+          ...query,
+          where: {
+            companyId: args.companyId,
+          },
+        })
+      },
+    }),
   }))
