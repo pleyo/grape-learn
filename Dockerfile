@@ -14,7 +14,6 @@ RUN npm install
 COPY prisma ./prisma
 COPY src ./src
 COPY tsconfig.json ./
-COPY tests ./tests
 
 # Set the environment variable
 ENV NODE_ENV=production
