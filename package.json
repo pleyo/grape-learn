@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server",
-    "start": "node dist/src/server.js",
+    "start": "node dist/server.js",
     "clean": "rm -rf dist",
     "test": "jest",
     "build": "npm -s run clean && npm -s run generate && tsc && npm run build:schema",
