@@ -63,4 +63,16 @@ builder.mutationFields((t) => ({
         return updatedPolicy;
     },
   }),
+  deletePolicy: t.prismaField({
+    type: 'Policy',
+    args: {
+      id: t.arg.int({ required: true }),
+    },
+    resolve: (query, parent, args) => {
+      return prisma.policy.delete({
+        ...query,
+        where: { id: args.id },
+      })
+    },
+  }),
 }))

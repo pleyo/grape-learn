@@ -44,6 +44,7 @@ type Mutation {
   createEmployee(data: EmployeeCreateInput!): Employee!
   deleteCompany(id: Int!): Company!
   deleteEmployee(id: Int!): Employee!
+  deletePolicy(id: Int!): Policy!
   extendPolicy(endDate: String!, id: Int!): Policy!
 }
 
