@@ -55,7 +55,6 @@ Create a `.env` file at the root of your project and configure any necessary env
 ```env
 # Example .env file
 DATABASE_URL=your_database_url
-SECRET_KEY=your_secret_key
 ```
 
 ### Step 4: Run Development Server
