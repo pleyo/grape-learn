@@ -6,6 +6,12 @@ The purpose of this small project is to address certain gaps in my knowledge rel
 
 The project is a straightforward initiative utilizing Node.js, GraphQL, and PostgreSQL to develop a basic API.
 
+## DISCLAIMER
+
+This project is primarily designed for educational purposes and is not recommended for production use. It serves as a learning platform and should be utilized as such. There are several potential enhancements that could be implemented for a more robust system, including but not limited to:
+- Rate limiting to prevent abuse
+- Authentication to ensure secure access
+
 ### Prerequisites
 
 To set up the required software, follow the installation steps for the following:
